@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainFragment">
+
+    <Button
+        android:id="@+id/load_text_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/find_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/barrier"
+        app:layout_constraintBottom_toTopOf="@id/guideline_listview"
+        app:layout_constraintVertical_bias="1" />
+
+    <EditText
+        android:id="@+id/url_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:ems="10"
+        android:maxLength="5000"
+        android:hint="@string/url"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/load_text_btn"
+        app:layout_constraintStart_toStartOf="@+id/load_text_btn"
+        app:layout_constraintTop_toTopOf="@id/guideline_top_text" />
+
+    <EditText
+        android:id="@+id/filter_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:maxLength="5000"
+        android:ems="10"
+        android:hint="@string/filter_string"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_text"
+        app:layout_constraintEnd_toEndOf="@+id/load_text_btn"
+        app:layout_constraintStart_toStartOf="@+id/load_text_btn"
+        app:layout_constraintTop_toBottomOf="@+id/url_text" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="load_text_btn"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="261dp" />
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:windowSoftInputMode="adjustPan"
+        app:layout_constraintBottom_toTopOf="@id/copy_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_button"
+        app:layout_constraintVertical_bias="1.0" >
+    </ListView>
+
+    <Button
+        android:id="@+id/copy_button"
+        app:layout_constraintStart_toStartOf="@id/load_text_btn"
+        app:layout_constraintEnd_toEndOf="@id/load_text_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/copy_selected" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="guideline_text"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="261dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
